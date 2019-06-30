@@ -1,0 +1,224 @@
+fileFormatVersion: 2
+guid: 85a7d5664dd9d654fa54efdc324f30cd
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 0000000001000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 5d2f62becd62580f75759a933a1aa739
+  longitude: -105.242139
+  latitude: 40.018309
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 0.034402322, y: 0.074422, z: -0.24725421}
+      lookAt: {x: 0.034402322, y: 0.074422, z: 0.0315885}
+      up: {x: 0, y: 1, z: 0}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2100000: _defaultMat
+    2100002: Arctic Silver
+    2100004: Antenna Band (Silver)
+    2100006: Notification LED_ Proximity_ Ambient Light Sensors
+    2100008: Corning Gorilla Glass 5 (Black)
+    2100010: _2
+    2100012: IR LED
+    2100014: Corning Gorilla Glass 5 (Silver)
+    2100016: Speaker_ Mic
+    2100018: Camera Ring
+    2100020: Camera Flash 1
+    2100022: Corning Gorilla Glass 5 (Clear)
+    2100024: Camera Flash 2
+    2100026: Receiver
+    2100028: 8 MP Front Camera
+    2100030: Iris Camera
+    2100032: 12 MP Rear Camera
+    2100034: Logo (Silver)
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Mesh Samsung+Galaxy+S8
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 12 MP Rear Camera
+    second: {fileID: 2100000, guid: 7107ae4f1fa2e2542b71e462f6ad32c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 8 MP Front Camera
+    second: {fileID: 2100000, guid: 3ab0028368db4d14189faba2562ca767, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Antenna Band (Silver)
+    second: {fileID: 2100000, guid: 73f1d67a9e916a14c87ad1fe57b6a0f1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Arctic Silver
+    second: {fileID: 2100000, guid: 7a607a33139c41d4c9b88f5ce14c4c3a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Camera Flash 1
+    second: {fileID: 2100000, guid: 861489bbd1d259141b650fddcf941a9f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Camera Flash 2
+    second: {fileID: 2100000, guid: 63b82167d664e7743a9a1b87e2bd6c85, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Camera Ring
+    second: {fileID: 2100000, guid: e4b14ffd476be3941a486643e0212dde, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Corning Gorilla Glass 5 (Black)
+    second: {fileID: 2100000, guid: 4f851847e1f9eeb4f96f82716481ad29, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Corning Gorilla Glass 5 (Clear)
+    second: {fileID: 2100000, guid: 0a974ea46f326df43a05cbbf7fdd2677, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Corning Gorilla Glass 5 (Silver)
+    second: {fileID: 2100000, guid: 45838b5c4102fa34d9365ce4bedfd84b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IR LED
+    second: {fileID: 2100000, guid: e4e4bb4992ed8ac4d87c2b8b77274fd3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Iris Camera
+    second: {fileID: 2100000, guid: 72ebf414b3c352847a70e492c497e072, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Logo (Silver)
+    second: {fileID: 2100000, guid: 80cffff089619c24e9e498e55bdb3331, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Notification LED_ Proximity_ Ambient Light Sensors
+    second: {fileID: 2100000, guid: 9b429ac06dfe4b6408e3ca6f5bab81d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Receiver
+    second: {fileID: 2100000, guid: 4b3e0d2775c221d47b8899cd2796a000, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker_ Mic
+    second: {fileID: 2100000, guid: 93f2887179dc7db48a2c9d1aa543fb09, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _2
+    second: {fileID: 2100000, guid: 21d822b94caf506419d553855b7c28aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _defaultMat
+    second: {fileID: 2100000, guid: 17a0a84cc24ab5c4d84b861ad0fab200, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

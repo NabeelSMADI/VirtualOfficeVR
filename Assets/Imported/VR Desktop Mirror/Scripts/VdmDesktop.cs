@@ -8,6 +8,8 @@ using System.Xml;
 
 public class VdmDesktop : MonoBehaviour
 {
+
+
     [HideInInspector]
     public int Screen = 0;
     [HideInInspector]
@@ -240,9 +242,13 @@ public class VdmDesktop : MonoBehaviour
         Vector3 origin;
         Vector3 direction;
         Quaternion rotation;
-        
+
+        //  origin = m_manager.source.transform.position;
+        //  direction = m_manager.destination.transform.position;
+
         origin = controller.transform.position;
         direction = controller.transform.rotation * new Vector3(0, 0, 100);
+
         rotation = controller.transform.rotation;            
             
         bool hitScreen = false;
@@ -336,7 +342,7 @@ public class VdmDesktop : MonoBehaviour
                         }
                     }
                 }
-    
+
                 if (m_manager.ViveTouchPadForClick)
                 {
                     if (input.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad) && (input.GetAxis(Valve.VR.EVRButtonId.k_EButton_Axis0).x < -0.2f))
@@ -353,6 +359,22 @@ public class VdmDesktop : MonoBehaviour
                         VdmDesktopManager.ActionInThisFrame = true;
                     }
                 }
+
+                if (Input.GetMouseButtonDown(0))
+                {
+                    m_lastLeftTouchClick = Time.time;
+                    m_manager.SimulateMouseLeftDown();
+                    Debug.Log("SimulateMouseLeftDown SimulateMouseLeftDown");
+                    VdmDesktopManager.ActionInThisFrame = true;
+                }
+                if (Input.GetMouseButtonUp(0))
+                {
+                    m_lastLeftTouchClick = Time.time;
+                    m_manager.SimulateMouseLeftUp();
+                    VdmDesktopManager.ActionInThisFrame = true;
+                }
+
+
                 if (m_lastLeftTouchClick != 0)
                 {
                     if (input.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad))
@@ -435,6 +457,7 @@ public class VdmDesktop : MonoBehaviour
             return Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
     }
 #endif
+
 
     public void ZoomIn()
     {

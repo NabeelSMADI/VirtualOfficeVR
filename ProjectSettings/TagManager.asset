@@ -3,7 +3,20 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Desktop
+  - WebWindow
+  - Borders
+  - WebWindowUi
+  - ExcludeTeleport
+  - Leg
+  - SnapCube
+  - Arm
+  - SnapCylinder
+  - Saucers
+  - Torso
+  - Head
+  - TeleportIgnore
   layers:
   - Default
   - TransparentFX
@@ -13,7 +26,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - PostProcessing
   - 
   - 
   - 
@@ -38,6 +51,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Ignoreraycast
+    uniqueID: 3202855207
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

@@ -44,7 +44,7 @@ public class KeyboardLocation : MonoBehaviour
 
             keybord.transform.position = RightHand.Fingers[1].TipPosition.ToVector3();
             keybord.transform.LookAt(new Vector3(LeftHand.Fingers[1].TipPosition.ToVector3().x, keybord.transform.position.y, LeftHand.Fingers[1].TipPosition.ToVector3().z));
-
+            keybord.SetActive(true);
 
         }
     }

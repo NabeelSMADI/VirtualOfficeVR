@@ -45,7 +45,7 @@ public class VdmDesktopManager : MonoBehaviour {
     [Tooltip("If EnableZoomWithMenu is true, it's the distance between controller and monitor in Zoom Mode")]
     public float ControllerZoomDistance = 0.1f;
     [Tooltip("Monitor Scale Factor")]
-    public float ScreenScaleFactor = 0.00025f;
+    public float ScreenScaleFactor = 0.00025f; //0.0005
     [Tooltip("Show a line between the controller and the cursor pointer on monitor.")]
     public bool ShowLine = true;
     [Tooltip("Monitor texture filtering")]
