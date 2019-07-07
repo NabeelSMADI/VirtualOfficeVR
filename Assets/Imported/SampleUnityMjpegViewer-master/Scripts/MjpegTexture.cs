@@ -72,7 +72,7 @@ public class MjpegTexture : MonoBehaviour
     void Update()
     {
         deltaTime += Time.deltaTime;
-
+        
         if (updateFrame)
         {
             tex.LoadImage(mjpeg.CurrentFrame);
@@ -81,12 +81,12 @@ public class MjpegTexture : MonoBehaviour
             if(tex.width < tex.height)
             {
                 material.mainTexture = tex;
-                phoneObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+                phoneObject.transform.rotation = Quaternion.Euler(0, 0, phoneObject.transform.rotation.z);
             }
             else
             {
                 material.mainTexture = rotate(tex);
-                phoneObject.transform.rotation = Quaternion.Euler(0, 0, 90);
+                phoneObject.transform.rotation = Quaternion.Euler(0, 0, phoneObject.transform.rotation.z + 90);
             }
             updateFrame = false;
 

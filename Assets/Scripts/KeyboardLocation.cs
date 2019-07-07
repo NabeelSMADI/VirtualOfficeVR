@@ -29,7 +29,7 @@ public class KeyboardLocation : MonoBehaviour
     /// </summary> 
     void Relocate()
     {
-        if (Input.GetKeyUp(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey("right"))
         {
             Debug.Log("click: " );
 

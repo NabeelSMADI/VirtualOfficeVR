@@ -841,3 +841,78 @@
 2019-06-30 02:09:43,966 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
 2019-06-30 02:09:44,006 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:d03ca1bb-1a22-49eb-b2cc-a8c5418b638d,port:8541
 2019-06-30 02:13:12,287 [11] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========
+2019-07-07 18:24:49,018 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-07 18:24:49,130 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:79e66a0e-c0a8-4646-a910-a18605b40b9c,port:8419
+2019-07-07 18:27:56,223 [10] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========
+2019-07-07 18:32:09,379 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-07 18:32:09,461 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:ded57909-d459-419e-b6ea-268f76dff085,port:8329
+2019-07-07 18:33:53,557 [3] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========
+2019-07-07 18:35:30,935 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-07 18:35:31,020 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:550cd907-ab6c-4e8e-983d-4675e026449c,port:8030
+2019-07-07 18:36:55,428 [10] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========
+2019-07-07 18:39:19,539 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-07 18:39:19,621 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:93d5fa41-71e3-4418-b7f9-d08eb086189f,port:8955
+2019-07-07 18:40:38,608 [3] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========
+2019-07-07 18:41:55,159 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-07 18:41:55,249 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:0344f41f-10b3-41d7-9197-4840d9cc010f,port:8504
+2019-07-07 18:43:56,451 [3] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========
+2019-07-07 18:50:56,192 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-07 18:50:56,280 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:e9e040d0-999c-4d06-b0f9-e18ab83f73c3,port:8697
+2019-07-07 18:53:25,599 [12] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========
+2019-07-07 18:59:23,173 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-07 18:59:23,256 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:13366487-f2d2-458f-9b3b-bedb50c8cdda,port:8930
+2019-07-07 19:00:45,733 [7] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========
+2019-07-07 19:01:05,091 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-07 19:01:05,188 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:13b35259-d95f-403c-a6bd-3b17e359bf09,port:8818
+2019-07-07 19:22:11,819 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-07 19:22:11,867 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:76157133-0531-4e59-89cc-c6739c8e56b0,port:8650
+2019-07-07 19:22:20,125 [1] ERROR SharedPluginServer.Program [(null)] - CefRuntime return 0
+2019-07-07 19:24:22,060 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-07 19:24:22,096 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:e331ac46-97af-477b-83bc-1df134c68650,port:8319
+2019-07-07 19:24:30,989 [7] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========
+2019-07-07 19:24:46,592 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-07 19:24:46,634 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:f948a5ed-a24e-4521-b845-248f41d37f40,port:8547
+2019-07-07 19:24:53,001 [3] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========
+2019-07-07 19:26:04,973 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-07 19:26:05,017 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:0ccb7014-d0f9-4826-9922-5c29911ed1a1,port:8274
+2019-07-07 19:27:33,897 [11] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========
+2019-07-07 19:28:08,780 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-07 19:28:08,819 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:56b4d5ad-fad1-46a8-a01f-580149a98e22,port:8385
+2019-07-07 19:32:17,850 [9] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========
+2019-07-07 19:32:50,084 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-07 19:32:50,125 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:3068b15b-028a-4171-b8cd-049673464074,port:8296
+2019-07-07 19:33:20,764 [3] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========
+2019-07-07 19:33:32,173 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-07 19:33:32,218 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:37f76cc5-e002-4937-abac-c22810871876,port:8665
+2019-07-07 19:34:11,499 [3] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========
+2019-07-07 19:34:11,598 [1] ERROR SharedPluginServer.Program [(null)] - CefRuntime return 0
+2019-07-07 19:34:24,680 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-07 19:34:24,719 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:eeda43a9-bf10-40ff-9a05-8802afa41c69,port:8318
+2019-07-07 19:35:31,363 [3] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========
+2019-07-07 19:37:20,212 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-07 19:37:20,255 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:a1d73f42-649c-4963-a735-7ee944875a7b,port:8719
+2019-07-07 19:37:53,439 [3] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========
+2019-07-07 19:37:53,519 [1] ERROR SharedPluginServer.Program [(null)] - CefRuntime return 0
+2019-07-07 19:38:05,020 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-07 19:38:05,064 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:f5dcb291-ad98-44ef-823a-1a855cafadc7,port:8824
+2019-07-07 19:42:37,238 [10] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========
+2019-07-07 19:44:39,962 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-07 19:44:40,003 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:7d362ef8-772a-4fa4-934c-2c933322965a,port:8018
+2019-07-07 19:45:01,340 [3] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========
+2019-07-07 19:45:14,198 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-07 19:45:14,245 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:519f8f6b-f97a-4563-80a7-59ec6cd4bd2b,port:8060
+2019-07-07 19:45:34,286 [7] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========
+2019-07-07 19:45:34,351 [1] ERROR SharedPluginServer.Program [(null)] - CefRuntime return 0
+2019-07-07 19:46:05,014 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-07 19:46:05,057 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:cd1d328e-cfeb-46be-9736-c74dd0094d85,port:8205
+2019-07-07 19:50:47,848 [11] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========
+2019-07-07 19:52:11,094 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-07 19:52:11,138 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:9825e4ed-161e-436e-a945-a5d966949419,port:8010
+2019-07-07 19:53:03,998 [7] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========
+2019-07-07 19:53:04,064 [1] ERROR SharedPluginServer.Program [(null)] - CefRuntime return 0
+2019-07-07 19:53:39,406 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-07 19:53:39,451 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:0fe1f5c6-ec3c-4156-a6ed-115f09e9e35d,port:8110
+2019-07-07 19:53:54,248 [3] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========
+2019-07-07 19:56:14,713 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-07 19:56:14,749 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:7bbf93d4-13e5-4ab7-b49b-bc6ff35965f6,port:8938
+2019-07-07 19:59:42,471 [9] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========

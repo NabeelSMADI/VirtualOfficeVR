@@ -303,7 +303,7 @@ public class VdmDesktopManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-
+        /*
         ActionInThisFrame = false;
 
         if (UnityEngine.XR.XRSettings.eyeTextureResolutionScale != RenderScale)
@@ -331,7 +331,7 @@ public class VdmDesktopManager : MonoBehaviour {
                 monitor.CheckController(controller);
             }
 #endif            
-        }
+        }*/
     }
         
     public float GetScreenWidth(int screen)
