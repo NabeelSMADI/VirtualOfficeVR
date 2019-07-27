@@ -11,6 +11,8 @@ public class InterceptKeys : MonoBehaviour
     private const int WH_KEYBOARD_LL = 13;
 
     private const int WM_KEYDOWN = 0x0100;
+    private const int WM_KEYUP = 0x0101;
+     
 
     private static LowLevelKeyboardProc _proc = HookCallback;
 
@@ -21,10 +23,16 @@ public class InterceptKeys : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _hookID = SetHook(_proc);
+
 
         UnhookWindowsHookEx(_hookID);
+        _hookID = SetHook(_proc);
 
+    }
+
+    void OnApplicationQuit()
+    {
+        UnhookWindowsHookEx(_hookID);
     }
 
     // Update is called once per frame
@@ -50,6 +58,7 @@ public class InterceptKeys : MonoBehaviour
 
         }
 
+
     }
 
 
@@ -69,10 +78,27 @@ public class InterceptKeys : MonoBehaviour
         {
 
             int vkCode = Marshal.ReadInt32(lParam);
+          //  UnityEngine.Debug.Log(vkCode);
 
-            UnityEngine.Debug.Log(vkCode);
 
         }
+
+        if (nCode >= 0 && wParam == (IntPtr)WM_KEYDOWN && Marshal.ReadInt32(lParam) == 162)
+        {
+            KeyboardLocation.GetInstance().LeftControlKeyDown = true;
+         }
+        if (nCode >= 0 && wParam == (IntPtr)WM_KEYUP && Marshal.ReadInt32(lParam) == 162)
+        {
+            KeyboardLocation.GetInstance().LeftControlKeyDown = false;
+        }
+        if (nCode >= 0 && wParam == (IntPtr)WM_KEYUP && Marshal.ReadInt32(lParam) == 39)
+        {
+            KeyboardLocation.GetInstance().RightKeyUp  = true;
+        }
+
+
+
+
 
         return CallNextHookEx(_hookID, nCode, wParam, lParam);
 

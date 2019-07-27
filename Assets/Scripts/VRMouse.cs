@@ -28,6 +28,7 @@ public class VRMouse : MonoBehaviour
     InputField LastInputField = null;
 
     bool hasFocus = true;
+    bool isHidden = false;
 
     public int lastMouseX = -1;
     public int lastMouseY = -1;
@@ -113,6 +114,11 @@ public class VRMouse : MonoBehaviour
                 if (hasFocus)
                 {
                     m_manager.SetCursorPos(iX, iY);
+                    if (!isHidden)
+                    {
+                        ShowAndMinimized(activeWindow);
+                        isHidden = true;
+                    }
                 }
                 else
                 {
@@ -138,8 +144,13 @@ public class VRMouse : MonoBehaviour
                         source.transform.LookAt(pos);
 
 
-                        SetForegroundWindow(activeWindow);
+                        //     SetForegroundWindow(activeWindow);
+                        //      SetFocusOnMainWindow(activeWindow);
+                        SetFocusAndHide(activeWindow);
+                        isHidden = false;
+#if  UNITY_EDITOR
                         EditorApplication.ExecuteMenuItem("Window/General/Game");
+#endif
                         UnityEngine.Debug.Log("SetForegroundWindow ----------");
                     }
                 }
@@ -171,6 +182,16 @@ public class VRMouse : MonoBehaviour
                     LastWebWindow.OnMouseEnter();
 
                 }
+                else
+                {
+                    if (LastWebWindow.Port != hit.collider.gameObject.GetComponent<SimpleWebBrowser.WebBrowser>().Port)
+                    {
+                        LastWebWindow.OnMouseExit();
+                        LastWebWindow = hit.collider.gameObject.GetComponent<SimpleWebBrowser.WebBrowser>();
+                        LastWebWindow.OnMouseEnter();
+                    }
+                }
+
                 destination.transform.position = hit.point;
             //    Vector3 moveDir = (source.transform.position - cursor.transform.position).normalized;
                
@@ -191,15 +212,15 @@ public class VRMouse : MonoBehaviour
             {
                 if (LastWebWindow != null)
                 {
-                    LastWebWindow.OnMouseExit();
+                     LastWebWindow.OnMouseExit();
                     LastWebWindow = null;
                 }
             }
 
             if (hit.collider.gameObject.tag == "WebWindowUi")
             {
-                UnityEngine.Debug.Log("WebWindowUi hit");
-                UnityEngine.Debug.Log("Hit " + hit.collider.gameObject.name);
+       //         UnityEngine.Debug.Log("WebWindowUi hit");
+      //          UnityEngine.Debug.Log("Hit " + hit.collider.gameObject.name);
                 destination.transform.position = hit.point;
               //  Vector3 moveDir = (source.transform.position - cursor.transform.position).normalized;
                 //  cursor.transform.rotation = hit.collider.gameObject.transform.rotation;
@@ -233,6 +254,7 @@ public class VRMouse : MonoBehaviour
                     hit.collider.gameObject.GetComponent<Renderer>().material = grayMaterial;
                     if (Input.GetMouseButtonDown(0))
                     {
+                        DataController.Instance.RemoveWindowData(hit.collider.gameObject.transform.parent.gameObject);
                         Destroy(hit.collider.gameObject.transform.parent.gameObject);
                     }
                 }
@@ -254,7 +276,7 @@ public class VRMouse : MonoBehaviour
                     hit.collider.gameObject.GetComponent<Renderer>().material = grayMaterial;
                     if (Input.GetMouseButtonDown(0))
                     {
-                        if (hit.collider.gameObject.transform.parent.name == "VR Desktop Mirror")
+                        if (hit.collider.gameObject.transform.parent.name == "VR Desktop Mirror" || dragTarget.name == "Phone")
                         {
                             hit.collider.gameObject.transform.parent.localScale += new Vector3(transform.localScale.x * 0.05f, transform.localScale.y * 0.05f, 0) * Time.deltaTime * 10;
                         }
@@ -262,6 +284,7 @@ public class VRMouse : MonoBehaviour
                         {
                             hit.collider.gameObject.transform.parent.localScale += new Vector3(transform.localScale.x * 0.05f, 0, transform.localScale.z * 0.05f) * Time.deltaTime * 10;
                         }
+                        DataController.Instance.UpdateWindowData(hit.collider.gameObject.transform.parent.gameObject);
                     }
                 }
                 else if (hit.collider.gameObject.name == "Size-Btn")
@@ -271,7 +294,7 @@ public class VRMouse : MonoBehaviour
                     hit.collider.gameObject.GetComponent<Renderer>().material = grayMaterial;
                     if (Input.GetMouseButtonDown(0))
                     {
-                        if (hit.collider.gameObject.transform.parent.name == "VR Desktop Mirror")
+                        if (hit.collider.gameObject.transform.parent.name == "VR Desktop Mirror" || dragTarget.name == "Phone")
                         {
                             hit.collider.gameObject.transform.parent.localScale -= new Vector3(transform.localScale.x * 0.05f, transform.localScale.y * 0.05f, 0) * Time.deltaTime * 10;
                         }
@@ -279,6 +302,7 @@ public class VRMouse : MonoBehaviour
                         {
                             hit.collider.gameObject.transform.parent.localScale -= new Vector3(transform.localScale.x * 0.05f, 0, transform.localScale.z * 0.05f) * Time.deltaTime * 10;
                         }
+                        DataController.Instance.UpdateWindowData(hit.collider.gameObject.transform.parent.gameObject);
                     }
                 }
                 else if (hit.collider.gameObject.name == "Background" && Input.GetMouseButtonDown(0))
@@ -322,14 +346,15 @@ public class VRMouse : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
+            DataController.Instance.UpdateWindowData(dragTarget);
             isMouseDrag = false;
             isMouseDragRotation = false;
-            UnityEngine.Debug.Log("isMouseDrag " + isMouseDrag);
+        //    UnityEngine.Debug.Log("isMouseDrag " + isMouseDrag);
         }
 
         if (isMouseDrag)
         {
-            if (dragTarget.name == "VR Desktop Mirror")
+            if (dragTarget.name == "VR Desktop Mirror" || dragTarget.name == "Phone")
             {
                 dragTarget.transform.Translate(new Vector3(Input.GetAxis("Mouse X") , Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse ScrollWheel") * 10) * Time.deltaTime * 4);
             }
@@ -341,7 +366,7 @@ public class VRMouse : MonoBehaviour
 
         if (isMouseDragRotation)
         {
-            if (dragTarget.name == "VR Desktop Mirror")
+            if (dragTarget.name == "VR Desktop Mirror" || dragTarget.name == "Phone")
             {
                 dragTarget.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), Input.GetAxis("Mouse ScrollWheel") * 2) * Time.deltaTime * 30, Space.Self);
             }
@@ -357,7 +382,7 @@ public class VRMouse : MonoBehaviour
     void OnApplicationFocus(bool hasFocus)
     {
         this.hasFocus =  hasFocus;
-        UnityEngine.Debug.Log("hasFocus ----------" + hasFocus);
+     //   UnityEngine.Debug.Log("hasFocus ----------" + hasFocus);
         if (!hasFocus)
         {
 
@@ -376,7 +401,7 @@ public class VRMouse : MonoBehaviour
     // You don't need it here, SetForegroundWindow does the same.
     // Just for documentation.
     [DllImport("user32.dll")]
-    static extern IntPtr SetFocus(HandleRef hWnd);
+    static extern bool SetFocus(IntPtr hWnd);
 
 
     [System.Runtime.InteropServices.DllImport("user32.dll")]
@@ -395,18 +420,49 @@ public class VRMouse : MonoBehaviour
         Restore = 9, ShowDefault = 10, ForceMinimized = 11
     };
 
-    public void BringMainWindowToFront(Process bProcess)
+    public void ShowAndMinimized(IntPtr MainWindowHandle)
     {
-            // check if the window is hidden / minimized
-            if (bProcess.MainWindowHandle == IntPtr.Zero)
-            {
-                // the window is hidden so try to restore it before setting focus.
-                ShowWindow(bProcess.Handle, ShowWindowEnum.Restore);
-            }
+        // check if the window is hidden / minimized
+        if (MainWindowHandle == IntPtr.Zero)
+        {
+            // the window is hidden so try to restore it before setting focus.
+            ShowWindow(MainWindowHandle, ShowWindowEnum.Restore);
+        }
 
-            // set user the focus to the window
-            SetForegroundWindow(bProcess.MainWindowHandle);
+        ShowWindow(MainWindowHandle, ShowWindowEnum.Minimize);
     }
+
+    public void SetFocusAndHide(IntPtr MainWindowHandle)
+    {
+        // check if the window is hidden / minimized
+        if (MainWindowHandle == IntPtr.Zero)
+        {
+            // the window is hidden so try to restore it before setting focus.
+            ShowWindow(MainWindowHandle, ShowWindowEnum.Restore);
+        }
+
+        // set user the focus to the window
+        SetFocus(MainWindowHandle);
+        // set user the focus to the window
+        SetForegroundWindow(MainWindowHandle);
+        ShowWindow(MainWindowHandle, ShowWindowEnum.Hide);
+
+    }
+
+
+
+
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR
+    [DllImport("user32.dll", EntryPoint = "SetWindowPos")]
+    private static extern bool SetWindowPos(IntPtr hwnd, int hWndInsertAfter, int x, int Y, int cx, int cy, int wFlags);
+    [DllImport("user32.dll", EntryPoint = "FindWindow")]
+    public static extern IntPtr FindWindow(System.String className, System.String windowName);
+
+    public static void SetPosition(int x, int y, int resX = 0, int resY = 0)
+    {
+        SetWindowPos(FindWindow(null, "My Unity Window Title"), 0, x, y, resX, resY, resX * resY == 0 ? 1 : 0);
+    }
+#endif
 }
 
 

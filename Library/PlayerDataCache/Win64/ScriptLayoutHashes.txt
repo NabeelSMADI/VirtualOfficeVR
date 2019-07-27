@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-D:/Unity/Projects/VirtualOfficeVR/Builds/4/WebBrowserTest.exe
+D:/Unity/Projects/VirtualOfficeVR/Builds/6/WebBrowserTest.exe
 SceneListBegin?
 Assets/Scenes/Room.unity
 SceneListEnd?
@@ -250,7 +250,7 @@ ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networki
 63e76a414b33483c4e8f6fa0573ec153 Assembly-CSharp.dll:VRTK.Examples.Old.FireExtinguisher_Sprayer
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:VRTK.Examples.UI_Interactions
-c718d92dc7b9427e61766912e86978f3 Assembly-CSharp.dll:.KeyboardLocation
+cd8e4eff141321b1cbca09faab7926af Assembly-CSharp.dll:.KeyboardLocation
 d9e5d15f791f38cd2ecd9967563f1834 Assembly-CSharp.dll:VRTK.VRTK_SpringLever
 76fafaf19d93687603cc37e0b09cd686 Assembly-CSharp.dll:Valve.VR.InteractionSystem.Player
 2d4ac1ddec4694598079dfb4c5b7f17d Assembly-CSharp.dll:Leap.Unity.ProximityDetector
@@ -319,7 +319,7 @@ c6bfb6b96dfa8d98e8ee48353bcacfe0 Assembly-CSharp.dll:Valve.VR.InteractionSystem.
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:VRTK.Examples.SnapDropZoneGroup_Switcher
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 02896bd92bb5fcbb908fd99858fc8931 Assembly-CSharp.dll:Leap.Unity.EnableDepthBuffer
-670bc46d1df96598a1cd423878dc4481 Assembly-CSharp.dll:.VRMouse
+677e2b74fee20079d0c800154cfea8d1 Assembly-CSharp.dll:.VRMouse
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.InterceptMouse
 9e95e5ed7f45f731fa90983a71d87aaf Assembly-CSharp.dll:VRTK.UnityEventHelper.VRTK_ObjectAutoGrab_UnityEvents
 b7d1817979b42aa3b599ba010575506b Assembly-CSharp.dll:Leap.Unity.RiggedFinger
@@ -528,7 +528,7 @@ c3a6134c643adc24348a827ef675558e Assembly-CSharp.dll:VRTK.VRTK_UIDraggableItem
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:VRTK.Examples.VRTK_RoomExtender_ControllerExample
 bec1bc6bf6feae0cad538b55b1510a49 Assembly-CSharp.dll:VRTK.UnityEventHelper.VRTK_InteractUse_UnityEvents
 f34848eb42c07a5934f45dee154d356a Assembly-CSharp.dll:VRTK.Examples.VRTKExample_OptionTilePointerSelector
-b0ae5d6fcfdbc39c3013ac4f68e9b3fe Assembly-CSharp.dll:.MjpegTexture
+d1e1738a7a27fcd870a6318bac24e1e6 Assembly-CSharp.dll:.MjpegTexture
 3941e5e2e2a3a9798f4f296d0c79e909 Assembly-CSharp.dll:Leap.Unity.Interaction.ContactBone
 af674031a8db313b88d59a4998db6370 Assembly-CSharp.dll:Leap.Unity.Space.LeapCylindricalSpace
 6bec9ca884c100fa2bc14b84d0f4f804 Assembly-CSharp.dll:Leap.Unity.DisconnectionNotice

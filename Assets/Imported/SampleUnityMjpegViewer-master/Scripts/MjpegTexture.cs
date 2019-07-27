@@ -42,6 +42,8 @@ public class MjpegTexture : MonoBehaviour
     float deltaTime = 0.0f;
     float mjpegDeltaTime = 0.0f;
 
+    public InputField UrlField;
+
 
 
 
@@ -57,7 +59,7 @@ public class MjpegTexture : MonoBehaviour
         // and will it with raw PVRTC bytes.   PVRTC_RGBA4
         tex = new Texture2D(initWidth, initHeight, TextureFormat.ARGB32, false);
 
-        phoneObject.transform.LookAt(Camera.main.transform);
+       // phoneObject.transform.LookAt(Camera.main.transform);
     }
     private void OnMjpegFrameReady(object sender, FrameReadyEventArgs e)
     {
@@ -81,12 +83,14 @@ public class MjpegTexture : MonoBehaviour
             if(tex.width < tex.height)
             {
                 material.mainTexture = tex;
-                phoneObject.transform.rotation = Quaternion.Euler(0, 0, phoneObject.transform.rotation.z);
+                phoneObject.transform.localRotation = Quaternion.Euler(90, 0, 180);
+                phoneObject.transform.localPosition = new Vector3(0, 0, 0);
             }
             else
             {
                 material.mainTexture = rotate(tex);
-                phoneObject.transform.rotation = Quaternion.Euler(0, 0, phoneObject.transform.rotation.z + 90);
+                phoneObject.transform.localRotation = Quaternion.Euler(180, -90, 90);
+                phoneObject.transform.localPosition = new Vector3(0, 0.5f, 0);
             }
             updateFrame = false;
 
@@ -94,6 +98,14 @@ public class MjpegTexture : MonoBehaviour
 
             deltaTime = 0.0f;
         }
+    }
+
+    public void changeUrl()
+    {
+        Debug.Log("changeUrl");
+        streamAddress = UrlField.text;
+        Uri mjpegAddress = new Uri(streamAddress);
+        mjpeg.ParseStream(mjpegAddress);
     }
 
     void DrawFps()

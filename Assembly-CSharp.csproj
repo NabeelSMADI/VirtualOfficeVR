@@ -762,6 +762,8 @@
     <Compile Include="Assets\Scripts\InterceptMouse.cs" />
     <Compile Include="Assets\Scripts\KBHooks.cs" />
     <Compile Include="Assets\Scripts\KeyboardLocation.cs" />
+    <Compile Include="Assets\Scripts\Serialization\DataController.cs" />
+    <Compile Include="Assets\Scripts\Serialization\WindowData.cs" />
     <Compile Include="Assets\Scripts\VRMouse.cs" />
     <Compile Include="Assets\SimpleWebBrowser\Demo\SampleJSQueryHandler.cs" />
     <Compile Include="Assets\SimpleWebBrowser\Scripts\BrowserEngine.cs" />

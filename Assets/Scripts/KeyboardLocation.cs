@@ -11,9 +11,24 @@ public class KeyboardLocation : MonoBehaviour
     public GameObject keybord;
     public GameObject leftControlKey;
 
+    public bool LeftControlKeyDown = false;
+    public bool RightKeyUp = false;
+
+    private static KeyboardLocation _KeyboardLocation;
+
+    public static KeyboardLocation GetInstance()
+    {
+        return _KeyboardLocation;
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
+        if (_KeyboardLocation == null)
+        {
+            _KeyboardLocation = this;
+        }
         provider = FindObjectOfType<LeapServiceProvider>() as LeapServiceProvider;
     }
 
@@ -29,9 +44,11 @@ public class KeyboardLocation : MonoBehaviour
     /// </summary> 
     void Relocate()
     {
-        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey("right"))
-        {
-            Debug.Log("click: " );
+      //  if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey("right"))
+        if (LeftControlKeyDown && RightKeyUp)
+            {
+            RightKeyUp = false;
+                Debug.Log("click: " );
 
             Hand RightHand = null;
             Hand LeftHand = null;

@@ -63,9 +63,8 @@ public class InterceptMouse : MonoBehaviour
         }
         VRMouse.GetInstance().MouseX = hookStruct.pt.x;
         VRMouse.GetInstance().MouseY = hookStruct.pt.y;
-      //  UnityEngine.Debug.Log(hookStruct.pt.x + ", " + hookStruct.pt.y);
-     //   }
-
+        // UnityEngine.Debug.Log(MouseMessages.WM_MOUSEMOVE + ", " + hookStruct.pt.y);
+        //   }hookStruct
         return CallNextHookEx(_hookID, nCode, wParam, lParam);
 
     }

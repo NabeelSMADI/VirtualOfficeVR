@@ -298,16 +298,16 @@ namespace SimpleWebBrowser
         public void OnMouseEnter()
         {
             _focused = true;
-            mainUIPanel.Show();
+         //   mainUIPanel.Show();
         }
 
         public void OnMouseExit()
         {
             _focused = false;
-            mainUIPanel.Hide();
+         //   mainUIPanel.Hide();
         }
 
-        void OnMouseDown()
+        void MouseDown()
         {
 
             if (_mainEngine.Initialized)
@@ -326,14 +326,14 @@ namespace SimpleWebBrowser
 
 
 
-        void OnMouseUp()
+        void MouseUp()
         {
             if (_mainEngine.Initialized)
             {
                 Vector2 pixelUV = GetScreenCoords();
 
-                Debug.Log("OnMouseUp pixelUV: " + pixelUV);
-                Debug.Log("OnMouseUp (int) pixelUV.x: " + (int)pixelUV.x + "GetScreenCoords (int) pixelUV.y: " + (int)pixelUV.y);
+          //      Debug.Log("OnMouseUp pixelUV: " + pixelUV);
+         //       Debug.Log("OnMouseUp (int) pixelUV.x: " + (int)pixelUV.x + "GetScreenCoords (int) pixelUV.y: " + (int)pixelUV.y);
 
 
                 if (pixelUV.x > 0)
@@ -343,7 +343,7 @@ namespace SimpleWebBrowser
             }
         }
 
-        void OnMouseOver()
+        void MouseOver()
         {
             if (_mainEngine.Initialized)
             {
@@ -508,7 +508,7 @@ namespace SimpleWebBrowser
 
 
 
-            if (_focused && !mainUIPanel.UrlField.isFocused) //keys
+            if (_focused) //keys
             {
                 foreach (char c in Input.inputString)
                 {
@@ -519,23 +519,22 @@ namespace SimpleWebBrowser
 
                 if (Input.GetMouseButtonDown(0))
                 {
-                    OnMouseDown();
-                    Debug.Log("OnMouseDown");
+                    MouseDown();
+                //Debug.Log("OnMouseDown");
 
                 }
                 if (Input.GetMouseButtonUp(0))
                 {
-                    OnMouseUp();
-                    Debug.Log("OnMouseUp");
+                    MouseUp();
+               //     Debug.Log("OnMouseUp");
                 }
-                OnMouseOver();
-
+                MouseOver();
 
 
             }
             else
             {
-                Debug.Log("_focused is false");
+
             }
 
         }
