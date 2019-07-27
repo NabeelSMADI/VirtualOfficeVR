@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 2700786559707846347}
   - component: {fileID: 2700786560256744708}
   m_Layer: 0
-  m_Name: VR Desktop Mirror 1
+  m_Name: VR Desktop Mirror
   m_TagString: Desktop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

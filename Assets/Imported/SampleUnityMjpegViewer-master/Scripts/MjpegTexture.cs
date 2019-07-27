@@ -28,7 +28,8 @@ public class MjpegTexture : MonoBehaviour
     public int chunkSize = 4;
 
     public Material material;
-    public GameObject phoneObject;
+    public GameObject ScreenPortrait;
+    public GameObject ScreenLandscape;
 
     Texture2D tex;
 
@@ -59,7 +60,7 @@ public class MjpegTexture : MonoBehaviour
         // and will it with raw PVRTC bytes.   PVRTC_RGBA4
         tex = new Texture2D(initWidth, initHeight, TextureFormat.ARGB32, false);
 
-       // phoneObject.transform.LookAt(Camera.main.transform);
+        UrlField.text = streamAddress;
     }
     private void OnMjpegFrameReady(object sender, FrameReadyEventArgs e)
     {
@@ -80,17 +81,20 @@ public class MjpegTexture : MonoBehaviour
             tex.LoadImage(mjpeg.CurrentFrame);
             // tex.Apply();
             // Assign texture to renderer's material.
-            if(tex.width < tex.height)
+            material.mainTexture = tex;
+            if (tex.width < tex.height)
             {
-                material.mainTexture = tex;
-                phoneObject.transform.localRotation = Quaternion.Euler(90, 0, 180);
-                phoneObject.transform.localPosition = new Vector3(0, 0, 0);
+                ScreenPortrait.SetActive(true);
+                ScreenLandscape.SetActive(false);
+          //      phoneObject.transform.localRotation = Quaternion.Euler(90, 0, 180);
+          //      phoneObject.transform.localPosition = new Vector3(0, 0, 0);
             }
             else
             {
-                material.mainTexture = rotate(tex);
-                phoneObject.transform.localRotation = Quaternion.Euler(180, -90, 90);
-                phoneObject.transform.localPosition = new Vector3(0, 0.5f, 0);
+                ScreenPortrait.SetActive(false);
+                ScreenLandscape.SetActive(true);
+             //   phoneObject.transform.localRotation = Quaternion.Euler(180, -90, 90);
+            //    phoneObject.transform.localPosition = new Vector3(0, 0.5f, 0);
             }
             updateFrame = false;
 
@@ -134,18 +138,4 @@ public class MjpegTexture : MonoBehaviour
         mjpeg.StopStream();
     }
 
-    public Texture2D rotate( Texture2D t)
-    {
-        Texture2D newTexture = new Texture2D(t.height, t.width, t.format, false);
-
-        for (int i = 0; i < t.width; i++)
-        {
-            for (int j = 0; j < t.height; j++)
-            {
-                newTexture.SetPixel(j, i, t.GetPixel(t.width - i, j));
-            }
-        }
-        newTexture.Apply();
-        return newTexture;
-    }
 }

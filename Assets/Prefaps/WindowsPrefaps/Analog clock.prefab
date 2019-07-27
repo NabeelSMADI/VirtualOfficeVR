@@ -1388,7 +1388,7 @@ GameObject:
   - component: {fileID: 997384431732727874}
   m_Layer: 0
   m_Name: Analog clock
-  m_TagString: WebWindow
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1492,7 +1492,7 @@ MonoBehaviour:
   Port: 8000
   RandomPort: 1
   InitialURL: https://www.clocklink.com/html5embed.php?clock=019&timezone=GMT0200&color=blue&size=460&Title=&Message=&Target=&From=2019,1,1,0,0,0&Color=blue
-  EnableWebRTC: 1
+  EnableWebRTC: 0
   JSInitializationCode: 
   mainUIPanel: {fileID: 997384403613475088}
   KeepUIVisible: 1

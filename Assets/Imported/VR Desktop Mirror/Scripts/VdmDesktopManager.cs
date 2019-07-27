@@ -231,6 +231,8 @@ public class VdmDesktopManager : MonoBehaviour {
 #endif
 
         StartCoroutine(OnRender());
+
+        VRMouse.GetInstance().m_manager = this;
     }
 
     void StartMultiMonitor()

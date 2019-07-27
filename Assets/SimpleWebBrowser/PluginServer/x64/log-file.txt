@@ -1253,3 +1253,8 @@
 2019-07-08 21:58:33,434 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
 2019-07-08 21:58:33,472 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:460,height:460,url:https://www.clocklink.com/html5embed.php?clock=019&timezone=GMT0200&color=blue&size=460&Title=&Message=&Target=&From=2019,1,1,0,0,0&Color=blue,memfile:6807ffb8-8ab0-4fdf-82ad-dad67bb8b3c6,port:8781
 2019-07-08 21:59:09,437 [3] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========
+2019-07-27 12:55:57,161 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-27 12:55:57,250 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:363f2a8f-9c1e-4b83-a1fc-b7af4658b07a,port:8466
+2019-07-27 12:56:09,447 [3] INFO  SharedPluginServer.App [(null)] - ==============SHUTTING DOWN==========
+2019-07-27 12:58:12,408 [1] INFO  SharedPluginServer.Program [(null)] - ===============START================
+2019-07-27 12:58:12,446 [1] INFO  SharedPluginServer.Program [(null)] - Starting plugin, settings:width:888,height:500,url:youtube.com,memfile:b9e62348-974d-4bc5-8466-8063df523f44,port:8299
