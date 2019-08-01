@@ -8,11 +8,11 @@ public class KeyboardLocation : MonoBehaviour
 {
 
     LeapServiceProvider provider; //!< Leap motion Service Provider
-    public GameObject keybord;
-    public GameObject leftControlKey;
+    public GameObject Keyboard;   //!< Keyboard GameObject
+    public GameObject leftControlKey; //!< left Control Key Position on the Keyboard GameObject
 
-    public bool LeftControlKeyDown = false;
-    public bool RightKeyUp = false;
+    public bool LeftControlKeyDown = false; //!< is Left Control Key Down
+    public bool RightKeyUp = false; //!< is Right Key Up
 
     private static KeyboardLocation _KeyboardLocation;
 
@@ -40,16 +40,13 @@ public class KeyboardLocation : MonoBehaviour
 
 
     /// <summary>  
-    /// Checks if pinch gesture is active
+    /// Checks if Left Control and Right is Pressed to locate Keyboard with help of the fingers location.
     /// </summary> 
     void Relocate()
     {
-      //  if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey("right"))
         if (LeftControlKeyDown && RightKeyUp)
             {
             RightKeyUp = false;
-                Debug.Log("click: " );
-
             Hand RightHand = null;
             Hand LeftHand = null;
             Frame frame = provider.CurrentFrame;
@@ -58,12 +55,10 @@ public class KeyboardLocation : MonoBehaviour
                 if (hand.IsRight) RightHand = hand;
                 if (hand.IsLeft) LeftHand = hand;
             }
-
-            keybord.transform.position = RightHand.Fingers[1].TipPosition.ToVector3();
-            keybord.transform.LookAt(new Vector3(LeftHand.Fingers[1].TipPosition.ToVector3().x, keybord.transform.position.y, LeftHand.Fingers[1].TipPosition.ToVector3().z));
-            keybord.SetActive(true);
-
+            Keyboard.transform.position = RightHand.Fingers[1].TipPosition.ToVector3();
+            Keyboard.transform.LookAt(new Vector3(LeftHand.Fingers[1].TipPosition.ToVector3().x,
+                                      Keyboard.transform.position.y, LeftHand.Fingers[1].TipPosition.ToVector3().z));
+            Keyboard.SetActive(true);
         }
     }
-
 }

@@ -5,6 +5,16 @@ using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
+/// <summary>  
+///  InterceptKeys class is a low-level keyboard hook with C#
+///  to track the keyboard events even if the unity Application runs in the background Mode
+///  
+///  Low-Level Keyboard Hook in C# From Microsoft Bolg
+///  https://blogs.msdn.microsoft.com/toub/2006/05/03/low-level-keyboard-hook-in-c/
+///  "Low-Level Keyboard Hook in C#" by Stephen Toub - MSFT, 03.05.2006
+///  Accessed 01.07.2019
+/// </summary> 
+
 public class InterceptKeys : MonoBehaviour
 {
 

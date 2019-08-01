@@ -5,7 +5,6 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Linq;
 
-
 /// <summary>  
 ///  The DataController functions as a global object
 ///  that persists over scenes. It's responsability
@@ -17,6 +16,7 @@ using System.Linq;
 ///  "Saving and Loading Player Game Data in Unity" by Zdravko Jakupec, 21.10.2015
 ///  Accessed 01.07.2019
 /// </summary> 
+
 public class DataController : MonoBehaviour
 {
 
@@ -80,32 +80,32 @@ public class DataController : MonoBehaviour
         else return new List<WindowData>();
     }
 
+    /// <summary>  
+    /// This function will load the data from the file "save.binary",
+    /// and create all the windows depending on the saved data.
+    /// </summary> 
     public void LoadAndCreateWindows()
     {
         data = Load();
         for (int i = 0; i < data.Count; i++)
         {
             GameObject window = Instantiate(WindowsPrefabsList[data[i].type]) as GameObject;
-
-            //    window.transform.localPosition.Set(data[i].xPos, data[i].yPos, data[i].zPos);
-            //   window.transform.localRotation.Set(data[i].xRot, data[i].yRot, data[i].zRot, data[i].wRot);
-            //   window.transform.localScale.Set(data[i].xSca, data[i].ySca, data[i].zSca);
-
-               window.transform.localPosition = new Vector3(data[i].xPos, data[i].yPos, data[i].zPos);
-             //  window.transform.localRotation = Quaternion.Euler(data[i].xRot, data[i].yRot, data[i].zRot);
-                window.transform.localScale = new Vector3(data[i].xSca, data[i].ySca, data[i].zSca);
+            window.transform.localPosition = new Vector3(data[i].xPos, data[i].yPos, data[i].zPos);
+            window.transform.localScale = new Vector3(data[i].xSca, data[i].ySca, data[i].zSca);
             window.transform.eulerAngles = new Vector3(data[i].xRot, data[i].yRot, data[i].zRot);
-            Debug.Log("------" + data[i].xRot + "-" + data[i].ySca + "-" + data[i].zSca);
-            Debug.Log("------" + window.transform.eulerAngles);
             WindowsList.Add(window, data[i]);
          }
 
 
     }
 
+    /// <summary>  
+    ///  Update the Raw data if the move transform change.
+    ///  
+    /// <param name="Window">The Window GameObject</param>
+    /// </summary> 
     public void UpdateWindowData(GameObject Window)
     {
-        
         WindowData cuurentWindowData = WindowsList[Window];
         cuurentWindowData.xPos = Window.transform.localPosition.x;
         cuurentWindowData.yPos = Window.transform.localPosition.y;
@@ -116,17 +116,19 @@ public class DataController : MonoBehaviour
         cuurentWindowData.xSca = Window.transform.localScale.x;
         cuurentWindowData.ySca = Window.transform.localScale.y;
         cuurentWindowData.zSca = Window.transform.localScale.z;
-        
     }
 
+    /// <summary>  
+    ///  Add new Window the Raw data.
+    ///  
+    /// <param name="type">The Window Type</param>
+    /// </summary> 
     public void AddWindow(int type)
     {
         if (DesktopExist && type == 0) return;
         if (PhoneExist && type == 1) return;
         if (type == 0) DesktopExist = true;
         if (type == 1) PhoneExist = true;
-
-     
 
         GameObject Window = Instantiate(WindowsPrefabsList[type].gameObject) as GameObject;
         WindowData cuurentWindowData = new WindowData();
@@ -143,6 +145,11 @@ public class DataController : MonoBehaviour
         WindowsList.Add(Window, cuurentWindowData);
     }
 
+    /// <summary>  
+    ///  Remove Window Raw data.
+    ///  
+    /// <param name="Window">The Window GameObject</param>
+    /// </summary> 
     public void RemoveWindowData(GameObject Window)
     {
         WindowData cuurentWindowData = WindowsList[Window];
@@ -151,9 +158,12 @@ public class DataController : MonoBehaviour
         WindowsList.Remove(Window);
     }
 
+
+    /// <summary>  
+    ///  OnApplicationQuit Save all the raw data to file 
+    /// </summary> 
     private void OnApplicationQuit()
     {
-
         foreach (KeyValuePair<GameObject, WindowData> w in WindowsList) // loop through both
         {
             GameObject Window = w.Key;

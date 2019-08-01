@@ -5,6 +5,16 @@ using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
+/// <summary>  
+///  InterceptMouse class is a low-level Mouse hook with C# 
+///  to track the Mouse events even if the unity Application runs in the background Mode
+///  
+///  Low-Level Mouse Hook in C# From Microsoft Bolg
+///  https://blogs.msdn.microsoft.com/toub/2006/05/03/low-level-mouse-hook-in-c/
+///  "Low-Level Mouse Hook in C#" by Stephen Toub - MSFT, 03.05.2006
+///  Accessed 01.07.2019
+/// </summary> 
+/// 
 public class InterceptMouse : MonoBehaviour
 {
     private static MSLLHOOKSTRUCT hookStruct;
@@ -52,10 +62,7 @@ public class InterceptMouse : MonoBehaviour
 
     private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam){
 
-      //  if (nCode >= 0 && MouseMessages.WM_LBUTTONDOWN == (MouseMessages)wParam){
-
-            hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
-
+        hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
         if(VRMouse.GetInstance().lastMouseX == -1)
         {
             VRMouse.GetInstance().lastMouseX = hookStruct.pt.x;
@@ -63,8 +70,7 @@ public class InterceptMouse : MonoBehaviour
         }
         VRMouse.GetInstance().MouseX = hookStruct.pt.x;
         VRMouse.GetInstance().MouseY = hookStruct.pt.y;
-        // UnityEngine.Debug.Log(MouseMessages.WM_MOUSEMOVE + ", " + hookStruct.pt.y);
-        //   }hookStruct
+
         return CallNextHookEx(_hookID, nCode, wParam, lParam);
 
     }
