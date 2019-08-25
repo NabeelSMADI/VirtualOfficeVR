@@ -15,11 +15,7 @@ public class MjpegTexture : MonoBehaviour
     [Tooltip("Set this to be the network address of the mjpg stream. ")]
     public string streamAddress;
 
-    /// <summary>
-    /// Show fps (OnGUI).
-    /// </summary>
-    [Tooltip("Show fps (OnGUI).")]
-    public bool showFps = true;
+
 
     /// <summary>
     /// Chunk size for stream processor in kilobytes.
@@ -44,10 +40,6 @@ public class MjpegTexture : MonoBehaviour
     float mjpegDeltaTime = 0.0f;
 
     public InputField UrlField;
-
-
-
-
 
     public void Start()
     {
@@ -107,26 +99,6 @@ public class MjpegTexture : MonoBehaviour
         mjpeg.ParseStream(mjpegAddress);
     }
 
-    void DrawFps()
-    {
-        int w = Screen.width, h = Screen.height;
-
-        GUIStyle style = new GUIStyle();
-
-        Rect rect = new Rect(20, 20 + (h * 4 / 100 + 10), w, h * 2 / 100);
-        style.alignment = TextAnchor.UpperLeft;
-        style.fontSize = h * 4 / 100;
-        style.normal.textColor = new Color(255, 255, 255, 255);
-        float msec = mjpegDeltaTime * 1000.0f;
-        float fps = 1.0f / mjpegDeltaTime;
-        string text = string.Format("MJPEG: {0:0.0} ms ({1:0.} fps)", msec, fps);
-        GUI.Label(rect, text, style);
-    }
-
-    void OnGUI()
-    {
-        if (showFps) DrawFps();
-    }
 
     void OnDestroy()
     {

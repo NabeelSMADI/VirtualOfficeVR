@@ -40,7 +40,7 @@ public class KeyboardLocation : MonoBehaviour
 
 
     /// <summary>  
-    /// Checks if Left Control and Right is Pressed to locate Keyboard with help of the fingers location.
+    /// Checks if Left Control and Right is Pressed to locate the Keyboard with help of the fingers location.
     /// </summary> 
     void Relocate()
     {

@@ -21,13 +21,13 @@ public class DataController : MonoBehaviour
 {
 
     public static DataController Instance;
-    public List<GameObject> WindowsPrefabsList;
+    public List<GameObject> WindowsPrefabsList; //!< list of Windows GameObjects
     public List<WindowData> data = new List<WindowData>(); //!< list of Windows data
-    public Dictionary<GameObject, WindowData> WindowsList = new Dictionary<GameObject, WindowData>();
+    public Dictionary<GameObject, WindowData> WindowsList = new Dictionary<GameObject, WindowData>(); //!< Dictionary of Windows data and GameObjects
 
 
-    bool DesktopExist = false;
-    bool PhoneExist = false;
+    bool DesktopExist = false; //!< is Desktop Window Exist
+    bool PhoneExist = false; //!< is Phone Window Exist
 
     void Awake()
     {
@@ -95,8 +95,6 @@ public class DataController : MonoBehaviour
             window.transform.eulerAngles = new Vector3(data[i].xRot, data[i].yRot, data[i].zRot);
             WindowsList.Add(window, data[i]);
          }
-
-
     }
 
     /// <summary>  
@@ -182,5 +180,11 @@ public class DataController : MonoBehaviour
         data = WindowsList.Values.ToList();
         Save();
     }
+
+    public void ApplicationQuit()
+    {
+        Application.Quit();
+    }
+
 
 }

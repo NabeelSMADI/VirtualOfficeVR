@@ -104,7 +104,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8545476412776551892}
   m_LocalRotation: {x: 0, y: 0.2577483, z: 0, w: 0.96621215}
-  m_LocalPosition: {x: 4.750925, y: 1.18, z: -5.060248}
+  m_LocalPosition: {x: 5.073, y: 1.102, z: -3.657}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4805746548852202384}
@@ -131,7 +131,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   streamAddress: http://192.168.0.100:8080/stream.mjpeg
-  showFps: 1
   chunkSize: 4
   material: {fileID: 2100000, guid: 5b3f18fe1b1156e4aba964e198b6545c, type: 2}
   ScreenPortrait: {fileID: 4805746548852202396}

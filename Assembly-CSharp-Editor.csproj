@@ -387,6 +387,9 @@
     <Reference Include="InteractionEngineUtility">
       <HintPath>D:/Unity/Projects/VirtualOfficeVR/Assets/LeapMotion/Modules/InteractionEngine/Plugins/InteractionEngineUtility.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing">
+      <HintPath>D:/Unity/Projects/VirtualOfficeVR/Assets/SampleUnityMjpegViewer/Scripts/System.Drawing.dll</HintPath>
+    </Reference>
     <Reference Include="MessageLibrary">
       <HintPath>D:/Unity/Projects/VirtualOfficeVR/Assets/SimpleWebBrowser/Plugins/MessageLibrary.dll</HintPath>
     </Reference>
@@ -407,9 +410,6 @@
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
       <HintPath>D:/Unity/Projects/VirtualOfficeVR/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Drawing">
-      <HintPath>D:/Unity/Projects/VirtualOfficeVR/Assets/SampleUnityMjpegViewer/Scripts/System.Drawing.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/MonoBleedingEdge/lib/mono/2.0-api/mscorlib.dll</HintPath>

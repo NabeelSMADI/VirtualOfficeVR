@@ -407,25 +407,12 @@ namespace SimpleWebBrowser
 
             RaycastHit hit;
             if (!Physics.Raycast(VRMouse.GetInstance().source.transform.position, direction, out hit))
-                // if (!Physics.Raycast(MainCamera.ScreenPointToRay(VRMouse.GetInstance().cursor.transform.position), out hit))
                 return new Vector2(-1f, -1f);
             Texture tex = _mainMaterial.mainTexture;
-         
             Vector2 pixelUV = hit.textureCoord;
-            //   Debug.Log("Before GetScreenCoords pixelUV: " + pixelUV);
             pixelUV.x = (1 - pixelUV.x) * tex.width;
             pixelUV.y *= tex.height;
-
-       //     VRMouse.GetInstance().cursor2.transform.position = hit.transform.position;
-
-            //  Debug.Log("After GetScreenCoords pixelUV: " + pixelUV);
-            //    Debug.Log("GetScreenCoords (int) pixelUV.x: " + (int)pixelUV.x + "GetScreenCoords (int) pixelUV.y: " + (int)pixelUV.y);
-
             return pixelUV;
-
-
-
-
         }
 
         private void SendMouseButtonEvent(int x, int y, MouseButton btn, MouseEventType type)

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 /// <summary>  
-///  VRMouse
+///  The class VRMouse.cs is responsible for moving the mouse pointer in the environment and sending events to the windows.
 ///  
 /// </summary> 
 
@@ -44,6 +44,8 @@ public class VRMouse : MonoBehaviour
     bool isMouseDrag;  //!<  is drag Active
     bool isMouseDragRotation;  //!< is Rotation drag Active
 
+    public Camera DesktopCamera; //!< DesktopCamera help to Hide the Application Window
+
     public static VRMouse GetInstance()
     {
         return _VRMouse;
@@ -63,8 +65,7 @@ public class VRMouse : MonoBehaviour
         activeWindow = (IntPtr)GetActiveWindow();
 
         lockCursor(true);
-
-      //  SetPosition(activeWindow, 5000, 5000);
+        ShowAndSetTransparent(activeWindow);
     }
 
     // Update is called once per frame
@@ -77,12 +78,18 @@ public class VRMouse : MonoBehaviour
         CheckWindowDrag();
     }
 
+    /// <summary>  
+    ///  Move the VR Mouse Cursor with the Mouse Input.
+    /// </summary> 
     void MoveVRMouseCursor()
     {
         float speed = 35; //how fast the object should rotate
         transform.Rotate(new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0) * Time.deltaTime * speed);
     }
 
+    /// <summary>  
+    ///  Send Raycast to detect windows and then check the window type by TAG
+    /// </summary> 
     void SendRaycast()
     {
         RaycastHit hit;
@@ -135,6 +142,11 @@ public class VRMouse : MonoBehaviour
        
     }
 
+    /// <summary>  
+    ///  lock and unlock the Cursor.
+    ///  
+    /// <param name="lockC">True or false to lock and unlock</param>
+    /// </summary> 
     void lockCursor(bool lockC)
     {
         if (lockC)
@@ -151,10 +163,14 @@ public class VRMouse : MonoBehaviour
         }
     }
 
+    /// <summary>  
+    ///  When the Raycast hits the desktop mirror window.
+    ///  
+    /// <param name="hit">The RaycastHit point</param>
+    /// </summary> 
     void CursorOnDesktop(RaycastHit hit)
     {
         lockCursor(false);
-
         destination.transform.position = hit.point;
         Vector3 localPosition = destination.transform.localPosition;
         localPosition.z = localPosition.z - 0.0001f;
@@ -165,26 +181,23 @@ public class VRMouse : MonoBehaviour
 
         float dx = m_manager.GetScreenWidth(0);
         float dy = m_manager.GetScreenHeight(0);
-
         float vx = hit.textureCoord.x;
         float vy = hit.textureCoord.y;
-
         vy = 1 - vy;
-
         float x = (vx * dx);
         float y = (vy * dy);
-
         int iX = (int)x;
         int iY = (int)y;
+
         if (hasFocus)
         {
             m_manager.SetCursorPos(iX, iY);
-            if (!isHidden)
-            {
-                //  ShowAndMinimized(activeWindow);
+               if (!isHidden)
+               {
+                  HideApplicationWindow(activeWindow);
                 // SetPosition(activeWindow, 5000, 5000);
                 isHidden = true;
-            }
+              }
         }
         else
         {
@@ -200,7 +213,7 @@ public class VRMouse : MonoBehaviour
 
                 //     SetForegroundWindow(activeWindow);
                 //      SetFocusOnMainWindow(activeWindow);
-                SetFocusAndHide(activeWindow);
+                ShowAndSetTransparent(activeWindow);
 
                 lockCursor(true);
                 isHidden = false;
@@ -222,9 +235,19 @@ public class VRMouse : MonoBehaviour
             VdmDesktopManager.ActionInThisFrame = true;
         }
     }
-    
+
+    /// <summary>  
+    ///  When the Raycast hits the WebWindow window.
+    ///  
+    /// <param name="hit">The RaycastHit point</param>
+    /// </summary> 
     void CursorOnWebWindow(RaycastHit hit)
     {
+        destination.transform.position = hit.point;
+        cursor.transform.up = hit.normal;
+        cursor.transform.position = destination.transform.position;
+        cursor.transform.position += hit.normal * 0.0001f;
+
         if (LastWebWindow == null)
         {
             LastWebWindow = hit.collider.gameObject.GetComponent<SimpleWebBrowser.WebBrowser>();
@@ -240,19 +263,20 @@ public class VRMouse : MonoBehaviour
                 LastWebWindow.OnMouseEnter();
             }
         }
-
-        destination.transform.position = hit.point;
-        cursor.transform.up = hit.normal;
-        cursor.transform.position = destination.transform.position;
-        cursor.transform.position += hit.normal * 0.0001f;
     }
 
+    /// <summary>  
+    ///  When the Raycast hits the WindowUi (Titlebar).
+    ///  
+    /// <param name="hit">The RaycastHit point</param>
+    /// </summary> 
     void CursorOnWindowUi(RaycastHit hit)
     {
         destination.transform.position = hit.point;
         cursor.transform.up = hit.normal;
         cursor.transform.position = destination.transform.position;
         cursor.transform.position += hit.normal * 0.01f;
+
         if (hit.collider.gameObject.name == "UrlFieldBG" && Input.GetMouseButtonDown(0))
         {
             UnityEngine.Debug.Log("UrlFieldBG Mouse");
@@ -338,6 +362,10 @@ public class VRMouse : MonoBehaviour
         }
     }
 
+    /// <summary>  
+    ///  Check WindowUI Drag and Drop.
+    ///  
+    /// </summary> 
     void CheckWindowDrag()
     {
         if (Input.GetMouseButtonUp(0))
@@ -372,11 +400,85 @@ public class VRMouse : MonoBehaviour
         }
     }
 
+    /// <summary>  
+    ///  Check if the Application has Focus
+    ///  
+    /// <param name="hasFocus">has Focus?</param>
+    /// </summary> 
     void OnApplicationFocus(bool hasFocus)
     {
         this.hasFocus = hasFocus;
     }
 
+    /// <summary>  
+    ///  Hide The Application Window
+    ///  
+    /// <param name="IntPtr">The Application Process</param>
+    /// </summary> 
+    public void HideApplicationWindow (IntPtr MainWindowHandle)
+    {
+       ShowWindow(MainWindowHandle, ShowWindowEnum.Hide);
+    }
+
+    /// <summary>  
+    ///  Show The Application Window And Set it as Transparent Window
+    ///  
+    /// <param name="IntPtr">The Application Process</param>
+    /// </summary> 
+    public void ShowAndSetTransparent(IntPtr MainWindowHandle)
+    {
+        ShowWindow(MainWindowHandle, ShowWindowEnum.Restore);
+        ShowWindow(MainWindowHandle, ShowWindowEnum.ShowNormal);
+        SetForegroundWindow(MainWindowHandle);
+        DesktopCamera.backgroundColor = new Color();
+        DesktopCamera.clearFlags = CameraClearFlags.SolidColor;
+
+#if !UNITY_EDITOR
+
+        Rectangle margins = new Rectangle() {Left = -1};
+        const int GWL_STYLE = -16;
+        const uint WS_POPUP = 0x80000000;
+        const uint WS_VISIBLE = 0x10000000;
+        SetWindowLong(MainWindowHandle, GWL_STYLE, WS_POPUP | WS_VISIBLE);
+        DwmExtendFrameIntoClientArea(MainWindowHandle, ref margins);
+#endif
+    }
+
+
+
+    /// <summary>  
+    ///  Get The Application Process
+    /// </summary> 
+    [DllImport("user32.dll")] static extern uint GetActiveWindow();
+
+    /// <summary>  
+    ///  Set The Application Window as a ForegroundWindow
+    /// </summary> 
+    [DllImport("user32.dll")] static extern bool SetForegroundWindow(IntPtr hWnd);
+
+    /// <summary>  
+    ///  Show The Application Window
+    /// </summary> 
+    [System.Runtime.InteropServices.DllImport("user32.dll")]
+    [return: System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.Bool)]
+    private static extern bool ShowWindow(IntPtr hWnd, ShowWindowEnum flags);
+
+    /// <summary>  
+    ///  Changes an attribute of the specified window.
+    /// </summary> 
+    [DllImport("user32.dll")]
+    static extern int SetWindowLong(IntPtr hWnd, int nIndex, uint dwNewLong);
+
+    /// <summary>  
+    ///  Extends the window frame into the client area.
+    /// </summary> 
+    [DllImport("Dwmapi.dll")]
+    static extern uint DwmExtendFrameIntoClientArea(IntPtr hWnd, ref Rectangle margins);
+
+    /// <summary>  
+    ///  ShowWindow Method enum
+    ///  
+    /// </summary> 
     private enum ShowWindowEnum
     {
         Hide = 0,
@@ -386,47 +488,18 @@ public class VRMouse : MonoBehaviour
         Restore = 9, ShowDefault = 10, ForceMinimized = 11
     };
 
-    public void ShowAndMinimized(IntPtr MainWindowHandle)
+    /// <summary>  
+    ///  Rectangle struct used in the DwmExtendFrameIntoClientArea Method
+    /// </summary> 
+    [StructLayout(LayoutKind.Sequential)]
+    public struct Rectangle
     {
-        // check if the window is hidden / minimized
-        if (MainWindowHandle == IntPtr.Zero)
-        {
-            // the window is hidden so try to restore it before setting focus.
-            ShowWindow(MainWindowHandle, ShowWindowEnum.Restore);
-        }
-
-       ShowWindow(MainWindowHandle, ShowWindowEnum.Minimize);
+        public int Left;
+        public int Top;
+        public int Right;
+        public int Bottom;
     }
 
-    public void SetFocusAndHide(IntPtr MainWindowHandle)
-    {
-        // check if the window is hidden / minimized
-        if (MainWindowHandle == IntPtr.Zero)
-        {
-            // the window is hidden so try to restore it before setting focus.
-            ShowWindow(MainWindowHandle, ShowWindowEnum.Restore);
-        }
-         // set user the focus to the window
-        SetForegroundWindow(MainWindowHandle);
-        //   SetPosition(activeWindow, 5000, 5000);
-        //       ShowWindow(MainWindowHandle, ShowWindowEnum.Hide);
-
-    }
-
-    [DllImport("user32.dll")] static extern uint GetActiveWindow();
-    [DllImport("user32.dll")] static extern bool SetForegroundWindow(IntPtr hWnd);
-
-    [System.Runtime.InteropServices.DllImport("user32.dll")]
-    [return: System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.Bool)]
-    private static extern bool ShowWindow(IntPtr hWnd, ShowWindowEnum flags);
-
-    [DllImport("user32.dll", EntryPoint = "SetWindowPos")]
-    private static extern bool SetWindowPos(IntPtr hwnd, int hWndInsertAfter, int x, int Y, int cx, int cy, int wFlags);
-
-    public static void SetPosition(IntPtr hwnd, int x, int y, int resX = 0, int resY = 0)
-    {
-        SetWindowPos(hwnd, 0, x, y, resX, resY, resX * resY == 0 ? 1 : 0);
-    }
 }
 
 
